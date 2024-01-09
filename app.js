@@ -8,6 +8,7 @@ import { logging } from "./่middlewares/logging.js";
 const app = express();
 const port = 4000;
 
+app.use(logging);
 app.use(bodyParser.json());
 app.use("/assignments", assignmentRouter);
 
@@ -16,8 +17,6 @@ app.use(express.urlencoded({ extended: true }));
 
 let assignmentsDatabase = [...assignments];
 let commentsDatabase = [...comments];
-
-app.use(logging);
 
 // ขอดู assignment ทั้งหมด แสดงได้สูงเกินไม่เกิน 10
 app.get("/assignments", function (req, res) {
