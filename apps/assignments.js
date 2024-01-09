@@ -2,6 +2,7 @@ import { Router } from "express";
 
 import { assignments as assignmentsFromFile } from "../data/assignments.js";
 import { comments as commentsFromFile } from "../data/comments.js";
+import validateAssignmentData from "../middlewares/assignmentValidation.js";
 
 let assignments = [...assignmentsFromFile];
 let comments = [...commentsFromFile];
@@ -31,7 +32,7 @@ assignmentRouter.get("/:id", (req, res) => {
   });
 });
 
-assignmentRouter.post("/", (req, res) => {
+assignmentRouter.post("/", validateAssignmentData, (req, res) => {
   const newAssignment = req.body;
   const newAssignmentId = assignments[assignments.length - 1].id + 1;
 
