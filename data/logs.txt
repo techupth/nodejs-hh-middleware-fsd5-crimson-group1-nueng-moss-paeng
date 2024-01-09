@@ -1,0 +1,16 @@
+
+IP: ::1, PUT, /assignments/IP:::1, PUT /assignments/IP:::1, PUT /assignments/
+ IP:::1, PUT /assignments/
+ IP:::1, PUT /assignments/
+ IP:::1, PUT /assignments/
+ IP:::1, PUT /assignments/
+ IP:::1, POST /assignments/
+ IP:::1, POST /assignments/
+ IP:::1, POST /assignments/
+ IP:::1, POST /assignments/
+ IP:::1, POST /assignments/
+ IP:::1, POST /assignments/
+ IP:::1, POST /assignments/
+ IP:::1, POST /assignments/
+ IP:::1, POST /assignments/
+ IP:::1, GET /assignments/

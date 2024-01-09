@@ -4,16 +4,17 @@ import assignmentRouter from "./apps/assignments.js";
 import { assignments } from "./data/assignments.js";
 import { comments } from "./data/comments.js";
 import { logging } from "./่middlewares/logging.js";
+import { validateData } from "./่middlewares/validateAssignmentData.js";
 
 const app = express();
 const port = 4000;
 
-app.use(logging);
-app.use(bodyParser.json());
-app.use("/assignments", assignmentRouter);
+app.use(express.json()); /// ตำแหน่งตรงนี้ต้องเรียงกันดีๆ ให้ถุกลำดับ
+app.use(express.urlencoded({ extended: true })); /// ตำแหน่งตรงนี้ต้องเรียงกันดีๆ ให้ถุกลำดับ
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use([logging, validateData]); /// ตำแหน่งตรงนี้ต้องเรียงกันดีๆ ให้ถุกลำดับ
+app.use(bodyParser.json()); /// ตำแหน่งตรงนี้ต้องเรียงกันดีๆ ให้ถุกลำดับ
+app.use("/assignments", assignmentRouter);
 
 let assignmentsDatabase = [...assignments];
 let commentsDatabase = [...comments];
