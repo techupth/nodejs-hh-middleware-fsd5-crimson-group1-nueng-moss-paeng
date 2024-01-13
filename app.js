@@ -1,11 +1,12 @@
 import express from "express";
 import bodyParser from "body-parser";
 import assignmentRouter from "./apps/assignments.js";
-
+import logging from "./logging.js";
 const app = express();
 const port = 4000;
 
 app.use(bodyParser.json());
+app.use(logging);
 app.use("/assignments", assignmentRouter);
 
 app.listen(port, () => {
